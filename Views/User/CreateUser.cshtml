@@ -1,8 +1,28 @@
-﻿@{
+﻿@model UserModel
+@{
     ViewData["Title"] = "CreateUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>@ViewData["Title"]</h1>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Crear nuevo usuario</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label asp-for="UserName">Username:</label>
+        <input asp-for="UserName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password">Password:</label>
+        <input asp-for="Password" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+}
+
+<p><a asp-action="GetAllUsers">Volver a la lista de usuarios</a></p>

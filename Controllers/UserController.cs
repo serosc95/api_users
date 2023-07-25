@@ -7,8 +7,12 @@ public class UserController : Controller
     private readonly HttpClient _httpClient;
     public UserController()
     {
+        // var httpClientHandler = new HttpClientHandler();
+        // httpClientHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
+
+        // _httpClient = new HttpClient(httpClientHandler);
         _httpClient = new HttpClient();
-        _httpClient.BaseAddress = new Uri("URL API");
+        _httpClient.BaseAddress = new Uri("API URL");
     }
 
     [HttpGet]

@@ -1,8 +1,33 @@
-﻿@{
+﻿@model List<UserModel>
+@{
     ViewData["Title"] = "GetAllUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>@ViewData["Title"]</h1>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="card">
+  <div class="card-header">
+    @ViewData["Title"]
+  </div>
+  <div class="card-body">
+    <a asp-action="CreateUser" asp-asp-controller="User" class="btn btn-success">Crear nuevo</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                </tr>  
+            }
+        </tbody>
+    </table>
+  </div>
 </div>
+
