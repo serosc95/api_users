@@ -1,0 +1,33 @@
+﻿@model List<UserModel>
+@{
+    ViewData["Title"] = "GetAllUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+  <div class="card-header">
+    @ViewData["Title"]
+  </div>
+  <div class="card-body">
+    <a asp-action="CreateUser" asp-asp-controller="User" class="btn btn-success">Crear nuevo</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+                </tr>  
+            }
+        </tbody>
+    </table>
+  </div>
+</div>
+
